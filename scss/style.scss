@@ -29,6 +29,7 @@ $secondary: #a0f669;
 
 html {
 	// overflow-x: hidden;
+	// overflow-x: auto;
 }
 body {
 	font-family: $font-primary;
@@ -292,7 +293,7 @@ h1, h2, h3, h4, h5,
 		}
 
 		.navbar-toggler {
-			border: none;
+			border: white;
 			color: rgba(0,0,0,.5)!important;
 			border-color: rgba(0,0,0,.5)!important;
 			cursor: pointer;
@@ -394,100 +395,261 @@ h1, h2, h3, h4, h5,
 			}
 		}
 	}
-	&.home-slider {
-		position: relative;
-		height: 750px;
-		z-index: 0;
-		.slider-item {
-			background-size: cover;
-			background-repeat: no-repeat;
-			background-position: center center;
-			height: 750px;
+	// &.home-slider {
+	// 	position: relative;
+	// 	height: 750px;
+	// 	z-index: 0;
+	// 	.slider-item {
+	// 		display: flex;
+	// 		background-size: cover;
+	// 		background-repeat: no-repeat;
+	// 		background-position: center center;
+	// 		height: 750px;
+	// 		position: relative;
+	// 		z-index: 0;
+	// 		@include media-breakpoint-down(lg){
+	// 			background-position: center center !important;
+	// 		}
+	// 		.overlay{
+	// 			position: absolute;
+	// 			top: 0;
+	// 			bottom: 0;
+	// 			left: 0;
+	// 			right: 0;
+	// 			background: $black;
+	// 			opacity: 0;
+	// 		}
+	// 		.slider-text {
+	// 			height: 750px;
+	// 			z-index: 0;
+	// 			@include media-breakpoint-down(md){
+	// 				text-align: center;
+	// 			}
+	// 			.one-third{
+	// 				width: 60%;
+	// 				position: relative;
+	// 				// height: 650px;
+	// 				z-index: -1;
+	// 				.overlay{
+	// 					position: absolute;
+	// 					top: 0;
+	// 					bottom: 0;
+	// 					left: 0;
+	// 					right: 0;
+	// 					background: $black;
+	// 					opacity: 0;
+	// 				}
+	// 				@include media-breakpoint-down(lg){
+	// 					width: 85%;
+	// 				}
+	// 				@include media-breakpoint-down(md){
+	// 					width: 100%;
+	// 					z-index: 0;
+	// 					.overlay{
+	// 						opacity: .3;
+	// 					}
+	// 					&:after{
+	// 						opacity: 0;
+	// 					}
+	// 				}
+	// 			}
+	// 			.one-forth{
+	// 				width: 50%;
+	// 				position: relative;
+	// 				@include media-breakpoint-up(md){
+	// 					position: absolute;
+	// 					top: 0;
+	// 					left: 0;
+	// 					bottom: 0;
+	// 					right: 0;
+	// 					width: 1200px;
+	// 					margin: 0 auto;
+	// 				}
+	// 				@include media-breakpoint-down(md){
+	// 					width: 100%;
+	// 					position: absolute;
+	// 					top: 0;
+	// 					left: 0;
+	// 					right: 0;
+	// 					bottom: 0;
+	// 					z-index: 1;
+	// 					padding: 1em;
+	// 				}
+	// 				.text{
+	// 					width: 100%;
+	// 					@include media-breakpoint-up(lg){
+	// 						position: absolute;
+	// 						top: 50%;
+	// 						left: 0;
+	// 						transform: translateY(-50%);
+	// 						right: 0;
+	// 						// width: 1200px;
+	// 						max-width: 50%;
+	// 						padding-left: 45px;
+	// 						padding-right: 3em;
+	// 					}
+	// 				}
+	// 			}
+		.home-slider {
 			position: relative;
+			height: 750px;
 			z-index: 0;
-			@include media-breakpoint-down(lg){
-				background-position: center center !important;
-			}
-			.overlay{
-				position: absolute;
-				top: 0;
-				bottom: 0;
-				left: 0;
-				right: 0;
-				background: $black;
-				opacity: 0;
-			}
-			.slider-text {
-				height: 750px;
-				z-index: 0;
-				@include media-breakpoint-down(md){
-					text-align: center;
+	
+			.slider-item {
+					display: flex;
+					flex-direction: column; // Kolom untuk tampilan mobile
+					height: auto; // Sesuaikan tinggi dengan konten
+					min-height: 100vh; // Minimum setinggi viewport, tapi biarkan konten menambah tinggi jika diperlukan
 				}
-				.one-third{
-					width: 60%;
-					position: relative;
-					// height: 650px;
-					z-index: -1;
-					.overlay{
-						position: absolute;
-						top: 0;
-						bottom: 0;
-						left: 0;
-						right: 0;
-						background: $black;
-						opacity: 0;
-					}
-					@include media-breakpoint-down(lg){
-						width: 85%;
-					}
-					@include media-breakpoint-down(md){
-						width: 100%;
-						z-index: 0;
-						.overlay{
-							opacity: .3;
-						}
-						&:after{
-							opacity: 0;
-						}
+			
+				@media (max-width: 768px) {
+					.slider-item {
+						height: auto; // Buat height menjadi auto pada mobile
+						min-height: 100vh; // Pastikan konten tidak melebihi viewport
 					}
 				}
-				.one-forth{
-					width: 50%;
-					position: relative;
-					@include media-breakpoint-up(md){
-						position: absolute;
-						top: 0;
-						left: 0;
-						bottom: 0;
-						right: 0;
-						width: 1200px;
-						margin: 0 auto;
+	
+				.overlay {
+					position: absolute;
+					top: 0;
+					bottom: 0;
+					left: 0;
+					right: 0;
+					background: rgba(0, 0, 0, 0.5); // Adjust the opacity if needed
+					z-index: 1; // Pastikan overlay berada di bawah teks
+				}
+	
+				.slider-text {
+					height: 750px;
+					z-index: 2; // Pastikan teks berada di atas overlay
+	
+					@include media-breakpoint-down(md) {
+						text-align: center;
 					}
-					@include media-breakpoint-down(md){
-						width: 100%;
-						position: absolute;
-						top: 0;
-						left: 0;
-						right: 0;
-						bottom: 0;
+	
+					.one-third {
+						width: 60%;
+						position: relative;
 						z-index: 1;
-						padding: 1em;
+	
+						@include media-breakpoint-down(lg) {
+							width: 85%;
+						}
+	
+						@include media-breakpoint-down(md) {
+							width: 100%;
+							z-index: 0;
+	
+							.overlay {
+								opacity: 0.3;
+							}
+	
+							&:after {
+								opacity: 0;
+							}
+						}
 					}
-					.text{
-						width: 100%;
-						@include media-breakpoint-up(lg){
+	
+					.one-forth {
+						width: 50%;
+						position: relative;
+	
+						@include media-breakpoint-up(md) {
 							position: absolute;
-							top: 50%;
+							top: 0;
 							left: 0;
-							transform: translateY(-50%);
+							bottom: 0;
 							right: 0;
-							// width: 1200px;
-							max-width: 50%;
-							padding-left: 45px;
-							padding-right: 3em;
+							width: 1200px;
+							margin: 0 auto;
+						}
+	
+						@include media-breakpoint-down(md) {
+							width: 100%;
+							position: static;
+							top: 0;
+							left: 0;
+							right: 0;
+							bottom: 0;
+							z-index: 2;
+							padding: 1em;
+							text-align: center; // Teks di tengah
+							margin-top: 20px; // Berikan jarak dari gambar
+						}
+	
+						.text {
+							width: 100%;
+	
+							@include media-breakpoint-up(lg) {
+								position: absolute;
+								top: 50%;
+								left: 0;
+								transform: translateY(-50%);
+								right: 0;
+								max-width: 50%;
+								padding-left: 45px;
+								padding-right: 3em;
+							}
+	
+							@include media-breakpoint-down(md) {
+								width: 100%;
+								padding: 0;
+								margin-top: 20px; // Tambahkan margin untuk jarak dari gambar
+								position: static;
+								transform: none;
+							}
 						}
 					}
 				}
+			}
+	
+			// Additional Media Query for Responsiveness
+			@include media-breakpoint-down(md) {
+				.slider-item {
+					flex-direction: column-reverse; // Memastikan teks di bawah gambar
+					justify-content: flex-start; // Memastikan elemen diatur di bagian atas
+					align-items: center; // Mengatur elemen ke tengah
+					height: auto; // Membiarkan slider menyesuaikan ketinggian sesuai konten
+				}
+	
+				.one-third {
+					width: 100%;
+					height: auto; // Sesuaikan tinggi dengan konten
+				}
+	
+				.one-forth {
+					width: 100%;
+					padding: 1em;
+					text-align: center; // Teks di tengah
+					margin-top: 20px; // Berikan jarak dari gambar
+					order: 2; // Pastikan teks berada di bawah gambar
+				}
+	
+				.text {
+					width: 100%;
+					padding: 0; // Menghilangkan padding pada layar kecil
+					margin-top: 20px; // Tambahkan margin untuk jarak dari gambar
+					position: static;
+					transform: none;
+				}
+			}
+	
+			@include media-breakpoint-down(sm) {
+				.one-forth {
+					width: 100%;
+					margin-top: 20px;
+					padding: 20px;
+					position: static;
+				}
+	
+				.text {
+					position: static;
+					padding: 0;
+					text-align: center;
+					transform: none;
+				}
+			}
+		}
 				// .icon-video{
 				// 	position: absolute;
 				// 	top: 120px;
@@ -556,8 +718,7 @@ h1, h2, h3, h4, h5,
 					font-size: 12px;
 					letter-spacing: 3px;
 				}
-			}
-		}
+			
 		.owl-nav {
 			position: absolute;
 			bottom: 60px !important;
@@ -642,8 +803,7 @@ h1, h2, h3, h4, h5,
 				}
 			}
 		}
-	}
-} 
+	
 
 
 .hero-wrap{
